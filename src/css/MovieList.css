@@ -1,11 +1,10 @@
-.movieListContainer {
-    flex: 40%;
-    background-color: #f1f1f1;
-    padding: 20px;
-}
-
 .movieList {
     list-style-type: none;
+    cursor: default;
+}
+
+.movieList li:hover{
+    background-color: #dedede;
 }
 
 .movieListItem {
