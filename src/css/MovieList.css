@@ -3,6 +3,14 @@
     cursor: default;
 }
 
+.movieList li:first-child > div {
+   border-top: none;
+}
+
+.movieList li:last-child > div {
+    border-bottom: solid 1px black;
+ }
+
 .movieListContainer {
     max-height: 450px;
     overflow-y: scroll;
@@ -18,8 +26,7 @@
     flex-direction: row;
     gap: 10px;
     padding: 20px;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
+    border-top: solid 1px black;    
 }
 
 .listContent {
