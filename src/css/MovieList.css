@@ -3,6 +3,12 @@
     cursor: default;
 }
 
+.movieListContainer {
+    max-height: 450px;
+    overflow-y: scroll;
+    min-width: 320px;
+}
+
 .movieList li:hover{
     background-color: #dedede;
 }
