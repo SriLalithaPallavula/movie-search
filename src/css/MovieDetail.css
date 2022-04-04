@@ -1,0 +1,32 @@
+.movieDetailContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+}
+
+.movieTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie_poster {
+    padding: 20px;
+}
+
+.movieDetail_img {
+    width: 150px;
+    height: 200px;
+}
+.movieRating{
+    display: flex;
+}
+.movieRatingSource {
+    padding: 20px;
+}
+.vl {
+    border-left: 1px solid black;
+    height: 50px;
+    margin-left: 30px;
+}
