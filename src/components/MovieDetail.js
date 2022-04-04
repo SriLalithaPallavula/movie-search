@@ -1,47 +1,88 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import '../css/MovieDetail.css';
 
 export const MovieDetail = (props) => {
 
     const { selectedMovie } = props;
-    
-    if(!selectedMovie) return null;
 
-    //console.log(selectedMovie);
+    const [addedToWatchList, setAddedToWatchList] = useState(false);
+
+    useEffect(() => {
+        if (selectedMovie && localStorage.getItem("watchList")) {
+            const watchList = JSON.parse(localStorage.getItem("watchList"));
+            if (watchList.indexOf(selectedMovie.imdbID) >= 0) {
+                setAddedToWatchList(true);
+            } else {
+                setAddedToWatchList(false);
+            }
+        }
+    }, [selectedMovie])
+
+    const addToWatchList = (movie) => {
+
+        const isAddingToWatchList = !addedToWatchList;
+
+        if (isAddingToWatchList) {
+            if (localStorage.getItem("watchList")) {
+                const watchList = JSON.parse(localStorage.getItem("watchList"));
+                watchList.push(movie.imdbID);
+                localStorage.setItem("watchList", JSON.stringify(watchList));
+            } else {
+                localStorage.setItem("watchList", JSON.stringify([movie.imdbID]));
+            }
+            setAddedToWatchList(true);
+        }
+        else {
+            const watchList = JSON.parse(localStorage.getItem("watchList"));
+            const index = watchList.indexOf(movie.imdbID);
+            if (index > -1) {
+                watchList.splice(index, 1);
+            }
+            localStorage.setItem("watchList", JSON.stringify(watchList));
+            setAddedToWatchList(false);
+        }
+    }
+
+    if (!selectedMovie) return null;
 
     return (
         <div className="movieDetailContainer">
             <div className="movieTitle">
-                <div className="movie_poster">
-                    <img className="movieDetail_img" src={selectedMovie.Poster} alt={selectedMovie.Title} />
+                <div className="moviePoster">
+                    <img className="moviePosterImg" src={selectedMovie.Poster} alt={selectedMovie.Title} />
                 </div>
-                <div className="movie_description">
+                <div className="movieCast">
                     <h1>{selectedMovie.Title}</h1> <br />
-                    <span>{selectedMovie.Rated}</span>&nbsp;
-                    <span>{selectedMovie.Year}</span>&nbsp;
-                    <span>{selectedMovie.Genre}</span>&nbsp;
-                    <span>{selectedMovie.Runtime}</span> <br />
-                    <span>{selectedMovie.Actors}</span>
+                    <span className="rated">{selectedMovie.Rated}</span>
+                    <span className="details">{selectedMovie.Year}</span>
+                    <span className="details">{selectedMovie.Genre}</span>
+                    <span className="details">{selectedMovie.Runtime}</span> <br />
+                    <span className="details">{selectedMovie.Actors}</span>
                 </div>
+                <button className="btnWatchList" onClick={() => addToWatchList(selectedMovie)}>
+                    {addedToWatchList ? <FaBookmark /> : <FaRegBookmark />}
+                    Watchlist
+                </button>
+            </div>
+
+            <div className="moviePlot">
+                <hr />
+                <p>{selectedMovie.Plot}</p>
                 <hr />
             </div>
-          
-            <div className="moviePlot">
-                <p>{selectedMovie.Plot}</p>
-            </div>
-            <hr />
+
             <div className="movieRating">
                 {selectedMovie.Ratings.map((rating) => {
                     return (
                         <div className="movieRatingSource"><span>{rating.Value}</span><br />
                             <span>{rating.Source}</span>
                             <span className="vl"></span></div>
-                            
+
                     );
                 })
                 }
-                
+
             </div>
         </div>
     );

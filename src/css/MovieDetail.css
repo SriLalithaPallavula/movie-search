@@ -11,20 +11,43 @@
     justify-content: center;
 }
 
-.movie_poster {
+.moviePoster {
     padding: 20px;
 }
 
-.movieDetail_img {
+.moviePosterImg {
     width: 150px;
     height: 200px;
 }
-.movieRating{
+
+.btnWatchList {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.rated {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.details {
+    padding: 5px;
+}
+
+.movieRating {
     display: flex;
 }
+
 .movieRatingSource {
     padding: 20px;
 }
+
 .vl {
     border-left: 1px solid black;
     height: 50px;
