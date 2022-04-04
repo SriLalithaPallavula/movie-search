@@ -6,7 +6,7 @@ const MovieList = (props) => {
     const {movies} = props;
 
     const moviesList = movies.map((movie) =>
-        <li key={movie.Title}>
+        <li key={movie.Title} onClick={() => props.handleSelectMovie(movie.imdbID)}>
             <div className='movieListItem'>
                 <img alt={movie.Title} src={movie.Poster} />
                 <div>

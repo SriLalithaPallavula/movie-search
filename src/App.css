@@ -1,4 +1,5 @@
 .navbar {
+
   overflow: hidden;
   background-color: rgb(72, 72, 76);
   position: sticky;
@@ -16,11 +17,14 @@
   font-size: 17px;
 }
 
-.navbar .search-container {
-  float: left;
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 20px;
 }
 
-.navbar .search-box {
+.navbar .searchBox {
   padding: 6px;
   margin: 16px;
   font-size: 17px;
@@ -31,13 +35,17 @@
 
 .Container {
   display: flex;
-  flex-flow: wrap;
 }
 
-.movieList {
-  flex-grow: 5;
+.radioButtonContainer {
+  display: flex;
+
 }
 
-.movieDetail {
-  flex-grow: 8;
+.radioButtonItem {
+  margin-right: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
