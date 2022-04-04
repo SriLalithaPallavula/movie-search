@@ -18,9 +18,8 @@
 
 .searchContainer {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  margin: 0 10px;
 }
 
 .navbar .searchBox {
@@ -52,6 +51,9 @@
 
 .filterContainer {
   display: flex;
+  font-size: 14px;
+  position: relative;
+  top: 8px;
 }
 
 .searchYearContainer {
