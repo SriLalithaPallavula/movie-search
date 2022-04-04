@@ -8,7 +8,7 @@
 .movieTitle {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 10px;
 }
 
 .moviePoster {
@@ -42,6 +42,7 @@
 
 .movieRating {
     display: flex;
+    justify-content: center;
 }
 
 .movieRatingSource {
