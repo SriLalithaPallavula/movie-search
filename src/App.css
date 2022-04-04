@@ -38,8 +38,16 @@
   opacity: 0.5;
 }
 
-.Container {
+.container {
   display: flex;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.noOfResults {
+  margin-left: 40px;
 }
 
 .filterContainer {
