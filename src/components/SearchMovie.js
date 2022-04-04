@@ -4,7 +4,7 @@ import { FaSistrix } from "react-icons/fa";
 
 const SearchMovie = (props) => {
 
-    const { setMovies } = props;
+    const { setMovies,  setNumberOfResults } = props;
 
     const [searchValue, setSearchValue] = useState(['']);
     const [latestSearchResults, setLatestSearchResults] = useState([]);
@@ -24,7 +24,10 @@ const SearchMovie = (props) => {
 
         if (responseJson.Search) {
             setLatestSearchResults(responseJson.Search);
-            //setMovies(responseJson.Search);
+            setNumberOfResults(responseJson.totalResults);
+        }else {
+            setLatestSearchResults([]);
+            setNumberOfResults('');
         }
     };
 
