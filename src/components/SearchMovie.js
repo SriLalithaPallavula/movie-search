@@ -31,6 +31,7 @@ const SearchMovie = (props) => {
         }
     ];
 
+    //fetches the results based on the search input value sets the results on parent component
     const getMovieRequest = async (searchValue) => {
         const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=f12d765f`;
 

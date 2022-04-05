@@ -11,6 +11,7 @@ function App() {
   const [numberOfResults, setNumberOfResults] = useState('');
   const [selectedMovie, setSelectedMovie] = useState(null);
 
+  //fetches the movie details based on the selected movie and sets it as prop on the MovieDetail component
   const showMovieDetail = async (movieID) => {
     const url = `http://www.omdbapi.com/?i=${movieID}&apikey=f12d765f`;
 
