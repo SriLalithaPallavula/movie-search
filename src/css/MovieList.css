@@ -8,7 +8,7 @@
 }
 
 .movieList li:last-child > div {
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px lightgray;
  }
 
 .movieListContainer {
@@ -26,7 +26,7 @@
     flex-direction: row;
     gap: 10px;
     padding: 20px;
-    border-top: solid 1px black;    
+    border-top: solid 1px lightgray;    
 }
 
 .listContent {
