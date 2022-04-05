@@ -6,7 +6,8 @@ import SearchMovie from './components/SearchMovie';
 
 function App() {
 
-  const [movies, setMovies] = useState([]);
+  const [results, setResults] = useState([]);
+  const [error, setError] = useState(null);
   const [numberOfResults, setNumberOfResults] = useState('');
   const [selectedMovie, setSelectedMovie] = useState(null);
 
@@ -22,24 +23,27 @@ function App() {
   };
 
   useEffect(() => {
-    if(movies.length > 0) {
+    if(results.length > 0) {
       showMovieDetail(selectedMovie);
     } else {
       setSelectedMovie(null);
     }    
-  }, [selectedMovie,movies])
+  }, [selectedMovie,results])
 
   return (
     <div>
       <div className="navbar">       
-        <SearchMovie setMovies={setMovies} setNumberOfResults={setNumberOfResults} />
+        <SearchMovie setResults={setResults} setError={setError} setNumberOfResults={setNumberOfResults} />
       </div>
       <div className="container">
         <div className="results">
            {
+             error && <span className='errorMessage'>{error}</span>
+           }  
+           {
              numberOfResults && <span className='noOfResults'>{`${numberOfResults} RESULTS`}</span> 
            }            
-           <MovieList movies={movies} handleSelectMovie={showMovieDetail}/>
+           <MovieList results={results} handleSelectMovie={showMovieDetail}/>
         </div>
         <MovieDetail selectedMovie={selectedMovie} />
       </div>
