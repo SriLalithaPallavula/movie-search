@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { FaRegBookmark, FaBookmark } from "react-icons/fa";
 import '../css/MovieDetail.css';
 
@@ -48,6 +48,14 @@ export const MovieDetail = (props) => {
 
     return (
         <div className="movieDetailContainer">
+             
+             <div className="watchListContainer">
+                <button className="btnWatchList" onClick={() => addToWatchList(selectedMovie)}>
+                        {addedToWatchList ? <FaBookmark /> : <FaRegBookmark />}
+                        Watchlist
+                </button>
+            </div>
+            
             <div className="movieTitle">
                 <div className="moviePoster">
                     <img className="moviePosterImg" src={selectedMovie.Poster} alt={selectedMovie.Title} />
@@ -60,10 +68,7 @@ export const MovieDetail = (props) => {
                     <span className="details">{selectedMovie.Runtime}</span> <br />
                     <span className="details">{selectedMovie.Actors}</span>
                 </div>
-                <button className="btnWatchList" onClick={() => addToWatchList(selectedMovie)}>
-                    {addedToWatchList ? <FaBookmark /> : <FaRegBookmark />}
-                    Watchlist
-                </button>
+               
             </div>
 
             <div className="moviePlot">
@@ -75,10 +80,13 @@ export const MovieDetail = (props) => {
             <div className="movieRating">
                 {selectedMovie.Ratings.map((rating) => {
                     return (
-                        <div className="movieRatingSource"><span>{rating.Value}</span><br />
-                            <span>{rating.Source}</span>
-                            <span className="vl"></span></div>
-
+                        <Fragment>
+                            <div className="movieRatingSource">
+                                <span>{rating.Value}</span>
+                                <span>{rating.Source}</span>                            
+                            </div>
+                            <span className="verticalLine"/>
+                        </Fragment>
                     );
                 })
                 }
