@@ -3,21 +3,21 @@ import '../css/MovieList.css';
 
 const MovieList = (props) => {
 
-    const {movies} = props;
+    const { results } = props;
 
-    const moviesList = movies.map((movie) =>
-        <li key={movie.Title} onClick={() => props.handleSelectMovie(movie.imdbID)}>
+    const moviesList = results.map((result) =>
+        <li key={result.Title} onClick={() => props.handleSelectMovie(result.imdbID)}>
             <div className='movieListItem'>
-                <img alt={movie.Title} src={movie.Poster} />
+                <img alt={result.Title} src={result.Poster} />
                 <div>
-                  <span>{movie.Title}</span><br />
-                  <span>{movie.Year}</span>
+                  <span>{result.Title}</span><br />
+                  <span>{result.Year}</span>
                 </div>
             </div>
         </li>
     );
 
-    if(movies.length < 1) return null;
+    if(results.length < 1) return null;
 
     return (
         <div className="movieListContainer">
