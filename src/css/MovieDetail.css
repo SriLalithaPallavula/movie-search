@@ -3,6 +3,7 @@
     flex-direction: column;
     background-color: white;
     padding: 20px;
+    flex-grow: 1;
 }
 
 .watchListContainer {
