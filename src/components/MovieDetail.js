@@ -80,7 +80,7 @@ export const MovieDetail = (props) => {
             <div className="movieRating">
                 {selectedMovie.Ratings.map((rating) => {
                     return (
-                        <Fragment>
+                        <Fragment key={rating.Source}>
                             <div className="movieRatingSource">
                                 <span>{rating.Value}</span>
                                 <span>{rating.Source}</span>                            

@@ -79,7 +79,7 @@ const SearchMovie = (props) => {
     }, [searchType, latestSearchResults, yearRange]) 
 
     const types = (searchTypes).map((type) =>
-        <div className="radioButtonItem">
+        <div className="radioButtonItem" key={type.value}>
             <input id={type.value} type='radio' name='searchType' checked={type.value === searchType}
                 onChange={() => { setSearchType(type.value) }} />
             <label for={type.value}>{type.label}</label>
